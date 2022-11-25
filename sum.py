@@ -1,8 +1,8 @@
 from pprint import pprint
+import sys
 
-
-def print_sum():
-    with open("golf.txt") as f:
+def print_sum(file_name: str):
+    with open(file_name) as f:
         headers = f.readline().strip().split(",")
         lines = f.readlines()
 
@@ -15,4 +15,6 @@ def print_sum():
 
 
 if __name__ == "__main__":
-    print_sum()
+        
+    fn = sys.argv[1] if len(sys.argv) > 1 else "golf.txt"
+    print_sum(fn)
